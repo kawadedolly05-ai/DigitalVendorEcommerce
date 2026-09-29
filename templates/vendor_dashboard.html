@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+
+{% block title %}
+Vendor Dashboard
+{% endblock %}
+
+
+{% block content %}
+
+<section class="dashboard">
+
+    <div class="dashboard-header">
+
+        <div>
+
+            <span class="section-tag">
+                VENDOR DASHBOARD
+            </span>
+
+            <h1>
+                Welcome, {{ session.get("name") }} 👋
+            </h1>
+
+            <p>
+                Manage your digital business from one place.
+            </p>
+
+        </div>
+
+        <a class="button"
+           href="{{ url_for('products') }}">
+            Explore Products
+        </a>
+
+    </div>
+
+
+    <div class="stats">
+
+        <div class="stat-card">
+            <span>🛒</span>
+            <h2>{{ order_count }}</h2>
+            <p>Total Orders</p>
+        </div>
+
+        <div class="stat-card">
+            <span>📦</span>
+            <h2>{{ stock_count }}</h2>
+            <p>Stock Items</p>
+        </div>
+
+        <div class="stat-card">
+            <span>🏭</span>
+            <h2>Suppliers</h2>
+            <p>Explore suppliers</p>
+        </div>
+
+        <div class="stat-card">
+            <span>👤</span>
+            <h2>Profile</h2>
+            <p>Manage business details</p>
+        </div>
+
+    </div>
+
+
+    <div class="quick-grid">
+
+        <a class="quick-card"
+           href="{{ url_for('products') }}">
+
+            <span>🛍️</span>
+
+            <h3>
+                Browse Products
+            </h3>
+
+            <p>
+                Explore products and raw materials.
+            </p>
+
+        </a>
+
+
+        <a class="quick-card"
+           href="{{ url_for('orders') }}">
+
+            <span>📋</span>
+
+            <h3>
+                My Orders
+            </h3>
+
+            <p>
+                View your order history and status.
+            </p>
+
+        </a>
+
+
+        <a class="quick-card"
+           href="{{ url_for('profile') }}">
+
+            <span>👤</span>
+
+            <h3>
+                My Profile
+            </h3>
+
+            <p>
+                Manage your personal and business information.
+            </p>
+
+        </a>
+
+
+        <a class="quick-card"
+           href="{{ url_for('home') }}">
+
+            <span>💡</span>
+
+            <h3>
+                Digital Awareness
+            </h3>
+
+            <p>
+                Learn about digital payments and cyber safety.
+            </p>
+
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}

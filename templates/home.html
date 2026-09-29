@@ -1,0 +1,402 @@
+{% extends "base.html" %}
+
+{% block title %}
+Home - Digital Vendor-Supplier Connect
+{% endblock %}
+
+
+{% block content %}
+
+<section class="hero">
+
+    <div class="hero-text">
+
+        <span class="badge">
+            CEP FIELD PROJECT
+        </span>
+
+        <h1>
+            Digital Empowerment
+            of Street Vendors
+        </h1>
+
+        <h2>
+            Connecting Street Vendors
+            with Suppliers through Digital Technology
+        </h2>
+
+        <p>
+            A digital platform that helps street vendors
+            discover suppliers, explore products, manage
+            orders and maintain important business information.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a class="button"
+               href="{{ url_for('register') }}">
+                Get Started
+            </a>
+
+            <a class="button secondary"
+               href="{{ url_for('login') }}">
+                Login
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-card">
+
+        <div class="big-icon">
+            🏪 🤝 🏭
+        </div>
+
+        <h2>
+            Vendor + Supplier
+        </h2>
+
+        <p>
+            One digital platform for business connection,
+            products and order management.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <span class="section-tag">
+        ABOUT THE PROJECT
+    </span>
+
+    <h2>
+        What is Digital Empowerment?
+    </h2>
+
+    <p>
+        Digital empowerment means helping people use
+        digital technology to make their work easier,
+        more organized and more connected.
+    </p>
+
+    <p>
+        Street vendors can use digital tools to find
+        suppliers, check product information, place
+        orders, maintain stock and manage basic business
+        records.
+    </p>
+
+</section>
+
+
+<section class="section">
+
+    <span class="section-tag">
+        PROJECT OBJECTIVES
+    </span>
+
+    <h2>
+        Why is this platform useful?
+    </h2>
+
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="card-icon">🔎</div>
+            <h3>Find Suppliers</h3>
+            <p>
+                Help vendors discover suppliers through
+                a digital platform.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="card-icon">📦</div>
+            <h3>Explore Products</h3>
+            <p>
+                View products, categories, prices and
+                available quantities.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="card-icon">🛒</div>
+            <h3>Place Orders</h3>
+            <p>
+                Vendors can send product orders to suppliers.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="card-icon">📊</div>
+            <h3>Manage Business</h3>
+            <p>
+                Maintain stock, orders and basic financial
+                information digitally.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section green-section">
+
+    <span class="section-tag">
+        FOR STREET VENDORS
+    </span>
+
+    <h2>
+        Digital Tools for Vendors
+    </h2>
+
+    <div class="feature-list">
+
+        <div>
+            🔍 Search for suppliers
+        </div>
+
+        <div>
+            📦 Explore products and raw materials
+        </div>
+
+        <div>
+            💰 Compare available prices
+        </div>
+
+        <div>
+            🛒 Place orders
+        </div>
+
+        <div>
+            📋 Track order status
+        </div>
+
+        <div>
+            📊 Maintain stock information
+        </div>
+
+        <div>
+            💵 Maintain sales and expense records
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <span class="section-tag">
+        FOR SUPPLIERS
+    </span>
+
+    <h2>
+        Digital Tools for Suppliers
+    </h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="card-icon">➕</div>
+            <h3>Add Products</h3>
+            <p>
+                Add products with category, price,
+                quantity and description.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="card-icon">📨</div>
+            <h3>Receive Orders</h3>
+            <p>
+                View orders received from registered vendors.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="card-icon">🚚</div>
+            <h3>Update Status</h3>
+            <p>
+                Accept, reject and update order status.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="card-icon">📈</div>
+            <h3>Business Management</h3>
+            <p>
+                Manage products, stock and orders digitally.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <span class="section-tag">
+        DIGITAL AWARENESS
+    </span>
+
+    <h2>
+        Digital Payment & Cyber Safety
+    </h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="card-icon">💳</div>
+
+            <h3>
+                Digital Payment Safety
+            </h3>
+
+            <p>
+                Always verify payment details before
+                completing a digital transaction.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="card-icon">🔐</div>
+
+            <h3>
+                Protect Passwords
+            </h3>
+
+            <p>
+                Use strong passwords and do not share
+                account credentials.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="card-icon">📱</div>
+
+            <h3>
+                Protect OTP
+            </h3>
+
+            <p>
+                Never share OTPs or verification codes
+                with other people.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="card-icon">🔗</div>
+
+            <h3>
+                Avoid Suspicious Links
+            </h3>
+
+            <p>
+                Check unknown links carefully before
+                opening them.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <span class="section-tag">
+        HOW IT WORKS
+    </span>
+
+    <h2>
+        Simple Digital Process
+    </h2>
+
+
+    <div class="steps">
+
+        <div class="step">
+            <strong>01</strong>
+            <h3>Register</h3>
+            <p>
+                Create a Vendor or Supplier account.
+            </p>
+        </div>
+
+
+        <div class="step">
+            <strong>02</strong>
+            <h3>Login</h3>
+            <p>
+                Login using your registered account.
+            </p>
+        </div>
+
+
+        <div class="step">
+            <strong>03</strong>
+            <h3>Connect</h3>
+            <p>
+                Vendors explore suppliers and products.
+            </p>
+        </div>
+
+
+        <div class="step">
+            <strong>04</strong>
+            <h3>Order</h3>
+            <p>
+                Vendor places an order for required products.
+            </p>
+        </div>
+
+
+        <div class="step">
+            <strong>05</strong>
+            <h3>Manage</h3>
+            <p>
+                Supplier manages the order and status.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="cta">
+
+    <h2>
+        Ready to use the platform?
+    </h2>
+
+    <p>
+        Create an account and start your digital journey.
+    </p>
+
+    <a class="button"
+       href="{{ url_for('register') }}">
+        Create Account
+    </a>
+
+</section>
+
+{% endblock %}

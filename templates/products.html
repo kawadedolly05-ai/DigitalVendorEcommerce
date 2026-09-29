@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+
+{% block title %}
+Products
+{% endblock %}
+
+
+{% block content %}
+
+<section class="dashboard">
+
+    <div class="page-title">
+
+        <span class="section-tag">
+            E-COMMERCE
+        </span>
+
+        <h1>
+            Products & Raw Materials
+        </h1>
+
+        <p>
+            Explore products available from registered suppliers.
+        </p>
+
+    </div>
+
+
+    {% if session.get("role") == "supplier" %}
+
+        <div class="top-action">
+
+            <a class="button"
+               href="{{ url_for('add_product') }}">
+                + Add New Product
+            </a>
+
+        </div>
+
+    {% endif %}
+
+
+    {% if products %}
+
+        <div class="product-grid">
+
+            {% for product in products %}
+
+                <div class="product-card">
+
+                    <div class="product-image">
+                        📦
+                    </div>
+
+                    <span class="category">
+                        {{ product["category"] }}
+                    </span>
+
+                    <h2>
+                        {{ product["name"] }}
+                    </h2>
+
+                    <p class="product-description">
+                        {{ product["description"] or "Quality product supplied through the digital platform." }}
+                    </p>
+
+                    <p class="supplier-name">
+                        Supplier:
+                        <strong>
+                            {{ product["supplier_business"] or product["supplier_name"] }}
+                        </strong>
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <div>
+
+                            <strong class="price">
+                                ₹{{ "%.2f"|format(product["price"]) }}
+                            </strong>
+
+                            <small>
+                                Stock: {{ product["quantity"] }}
+                            </small>
+
+                        </div>
+
+
+                        {% if session.get("role") == "vendor" %}
+
+                            {% if product["quantity"] > 0 %}
+
+                                <form
+                                    method="POST"
+                                    action="{{ url_for('place_order', product_id=product['id']) }}"
+                                >
+
+                                    <input
+                                        class="quantity-input"
+                                        type="number"
+                                        name="quantity"
+                                        value="1"
+                                        min="1"
+                                        max="{{ product['quantity'] }}"
+                                        required
+                                    >
+
+                                    <button
+                                        class="button small"
+                                        type="submit"
+                                    >
+                                        Order
+                                    </button>
+
+                                </form>
+
+                            {% else %}
+
+                                <span class="out-stock">
+                                    Out of Stock
+                                </span>
+
+                            {% endif %}
+
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    {% else %}
+
+        <div class="empty-state">
+
+            <div>
+                📦
+            </div>
+
+            <h2>
+                No Products Available
+            </h2>
+
+            <p>
+                Suppliers can add products from their dashboard.
+            </p>
+
+        </div>
+
+    {% endif %}
+
+</section>
+
+{% endblock %}

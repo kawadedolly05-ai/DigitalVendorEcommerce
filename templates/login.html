@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+
+{% block title %}
+Login - Digital Vendor-Supplier Connect
+{% endblock %}
+
+
+{% block content %}
+
+<section class="auth-page">
+
+    <div class="auth-card">
+
+        <div class="auth-info">
+
+            <div class="big-icon">
+                🤝
+            </div>
+
+            <h1>
+                Welcome Back
+            </h1>
+
+            <p>
+                Login to access your digital
+                business management dashboard.
+            </p>
+
+            <div class="auth-points">
+
+                <p>🏪 Vendor Dashboard</p>
+
+                <p>🏭 Supplier Dashboard</p>
+
+                <p>📦 Product Management</p>
+
+                <p>🛒 Order Management</p>
+
+                <p>📊 Digital Business Records</p>
+
+            </div>
+
+        </div>
+
+
+        <div class="form-area">
+
+            <h2>
+                Login
+            </h2>
+
+            <p class="muted">
+                Enter your account details.
+            </p>
+
+
+            <form method="POST">
+
+                <label>
+                    Login As
+                </label>
+
+                <select name="role" required>
+
+                    <option value="vendor">
+                        Vendor
+                    </option>
+
+                    <option value="supplier">
+                        Supplier
+                    </option>
+
+                    <option value="admin">
+                        Admin
+                    </option>
+
+                </select>
+
+
+                <label>
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    required
+                >
+
+
+                <label>
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Enter your password"
+                    required
+                >
+
+
+                <button
+                    class="button full"
+                    type="submit"
+                >
+                    Login
+                </button>
+
+            </form>
+
+
+            <p class="form-bottom">
+
+                Don't have an account?
+
+                <a href="{{ url_for('register') }}">
+                    Register Now
+                </a>
+
+            </p>
+
+
+            <div class="admin-info">
+
+                <strong>
+                    Demo Admin Account
+                </strong>
+
+                <br>
+
+                Email:
+                admin@digitalconnect.com
+
+                <br>
+
+                Password:
+                admin123
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

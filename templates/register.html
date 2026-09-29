@@ -1,0 +1,193 @@
+{% extends "base.html" %}
+
+{% block title %}
+Register - Digital Vendor-Supplier Connect
+{% endblock %}
+
+
+{% block content %}
+
+<section class="auth-page">
+
+    <div class="register-card">
+
+        <div class="form-area">
+
+            <h1>
+                Create Your Account
+            </h1>
+
+            <p class="muted">
+                Join the Digital Vendor-Supplier Connect platform.
+            </p>
+
+
+            <form method="POST">
+
+                <div class="form-grid">
+
+                    <div>
+
+                        <label>
+                            Full Name *
+                        </label>
+
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="Enter full name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <label>
+                            Mobile Number *
+                        </label>
+
+                        <input
+                            type="tel"
+                            name="phone"
+                            placeholder="Enter mobile number"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <label>
+                            Email Address *
+                        </label>
+
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Enter email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <label>
+                            Account Type *
+                        </label>
+
+                        <select
+                            name="role"
+                            required
+                        >
+
+                            <option value="">
+                                Select Account Type
+                            </option>
+
+                            <option value="vendor">
+                                Vendor
+                            </option>
+
+                            <option value="supplier">
+                                Supplier
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div>
+
+                        <label>
+                            Business Name
+                        </label>
+
+                        <input
+                            type="text"
+                            name="business_name"
+                            placeholder="Business name"
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <label>
+                            Business Type
+                        </label>
+
+                        <input
+                            type="text"
+                            name="business_type"
+                            placeholder="Example: Food / Grocery"
+                        >
+
+                    </div>
+
+
+                    <div class="full-width">
+
+                        <label>
+                            Address
+                        </label>
+
+                        <textarea
+                            name="address"
+                            placeholder="Enter business address"
+                        ></textarea>
+
+                    </div>
+
+
+                    <div class="full-width">
+
+                        <label>
+                            Password *
+                        </label>
+
+                        <input
+                            type="password"
+                            name="password"
+                            placeholder="Minimum 6 characters"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="button full"
+                    type="submit"
+                >
+                    Create Account
+                </button>
+
+            </form>
+
+
+            <p class="form-bottom">
+
+                Already have an account?
+
+                <a href="{{ url_for('login') }}">
+                    Login
+                </a>
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,176 @@
+{% extends "base.html" %}
+
+{% block title %}
+Orders
+{% endblock %}
+
+
+{% block content %}
+
+<section class="dashboard">
+
+    <div class="page-title">
+
+        <span class="section-tag">
+            ORDER MANAGEMENT
+        </span>
+
+        <h1>
+            Orders
+        </h1>
+
+        <p>
+            Manage and track digital orders.
+        </p>
+
+    </div>
+
+
+    {% if orders %}
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Order ID
+                        </th>
+
+                        <th>
+                            Product
+                        </th>
+
+                        <th>
+                            Quantity
+                        </th>
+
+                        <th>
+                            Total
+                        </th>
+
+                        <th>
+                            Status
+                        </th>
+
+                        <th>
+                            Date
+                        </th>
+
+                        {% if session.get("role") == "supplier" %}
+
+                            <th>
+                                Action
+                            </th>
+
+                        {% endif %}
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    {% for order in orders %}
+
+                        <tr>
+
+                            <td>
+                                #{{ order["id"] }}
+                            </td>
+
+                            <td>
+                                {{ order["product_name"] }}
+                            </td>
+
+                            <td>
+                                {{ order["quantity"] }}
+                            </td>
+
+                            <td>
+                                ₹{{ "%.2f"|format(order["total"]) }}
+                            </td>
+
+                            <td>
+
+                                <span class="status {{ order['status']|lower }}">
+                                    {{ order["status"] }}
+                                </span>
+
+                            </td>
+
+                            <td>
+                                {{ order["order_date"] }}
+                            </td>
+
+
+                            {% if session.get("role") == "supplier" %}
+
+                                <td>
+
+                                    {% if order["status"] == "Pending" %}
+
+                                        <a class="action accept"
+                                           href="{{ url_for('update_order', order_id=order['id'], action='accept') }}">
+                                            Accept
+                                        </a>
+
+                                        <a class="action reject"
+                                           href="{{ url_for('update_order', order_id=order['id'], action='reject') }}">
+                                            Reject
+                                        </a>
+
+                                    {% elif order["status"] == "Accepted" %}
+
+                                        <a class="action accept"
+                                           href="{{ url_for('update_order', order_id=order['id'], action='deliver') }}">
+                                            Mark Delivered
+                                        </a>
+
+                                    {% else %}
+
+                                        Completed
+
+                                    {% endif %}
+
+                                </td>
+
+                            {% endif %}
+
+                        </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    {% else %}
+
+        <div class="empty-state">
+
+            <div>
+                🛒
+            </div>
+
+            <h2>
+                No Orders Yet
+            </h2>
+
+            <p>
+                Orders will appear here after they are created.
+            </p>
+
+        </div>
+
+    {% endif %}
+
+</section>
+
+{% endblock %}

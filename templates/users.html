@@ -1,0 +1,193 @@
+{% extends "base.html" %}
+
+{% block title %}
+Users & Login Activity
+{% endblock %}
+
+
+{% block content %}
+
+<section class="dashboard">
+
+    <div class="page-title">
+
+        <span class="section-tag">
+            ADMIN MONITORING
+        </span>
+
+        <h1>
+            Registered Users
+        </h1>
+
+        <p>
+            View vendor and supplier registrations.
+        </p>
+
+    </div>
+
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        ID
+                    </th>
+
+                    <th>
+                        Name
+                    </th>
+
+                    <th>
+                        Email
+                    </th>
+
+                    <th>
+                        Phone
+                    </th>
+
+                    <th>
+                        Role
+                    </th>
+
+                    <th>
+                        Business
+                    </th>
+
+                    <th>
+                        Registered On
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                {% for user in users %}
+
+                    <tr>
+
+                        <td>
+                            {{ user["id"] }}
+                        </td>
+
+                        <td>
+                            {{ user["name"] }}
+                        </td>
+
+                        <td>
+                            {{ user["email"] }}
+                        </td>
+
+                        <td>
+                            {{ user["phone"] }}
+                        </td>
+
+                        <td>
+                            <span class="role">
+                                {{ user["role"] }}
+                            </span>
+                        </td>
+
+                        <td>
+                            {{ user["business_name"] or "-" }}
+                        </td>
+
+                        <td>
+                            {{ user["created_at"] }}
+                        </td>
+
+                    </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <div class="page-title second-title">
+
+        <span class="section-tag">
+            LOGIN MONITORING
+        </span>
+
+        <h1>
+            Login Activity
+        </h1>
+
+    </div>
+
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Name
+                    </th>
+
+                    <th>
+                        Email
+                    </th>
+
+                    <th>
+                        Role
+                    </th>
+
+                    <th>
+                        Login Time
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                {% for login in logins %}
+
+                    <tr>
+
+                        <td>
+                            {{ login["name"] }}
+                        </td>
+
+                        <td>
+                            {{ login["email"] }}
+                        </td>
+
+                        <td>
+                            {{ login["role"] }}
+                        </td>
+
+                        <td>
+                            {{ login["login_time"] }}
+                        </td>
+
+                    </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+{% endblock %}

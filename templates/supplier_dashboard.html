@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+
+{% block title %}
+Supplier Dashboard
+{% endblock %}
+
+
+{% block content %}
+
+<section class="dashboard">
+
+    <div class="dashboard-header">
+
+        <div>
+
+            <span class="section-tag">
+                SUPPLIER DASHBOARD
+            </span>
+
+            <h1>
+                Welcome, {{ session.get("name") }} 👋
+            </h1>
+
+            <p>
+                Manage products, stock and vendor orders.
+            </p>
+
+        </div>
+
+        <a class="button"
+           href="{{ url_for('add_product') }}">
+            Add Product
+        </a>
+
+    </div>
+
+
+    <div class="stats">
+
+        <div class="stat-card">
+            <span>📦</span>
+            <h2>{{ product_count }}</h2>
+            <p>My Products</p>
+        </div>
+
+        <div class="stat-card">
+            <span>🛒</span>
+            <h2>{{ order_count }}</h2>
+            <p>Vendor Orders</p>
+        </div>
+
+        <div class="stat-card">
+            <span>📈</span>
+            <h2>Manage</h2>
+            <p>Business</p>
+        </div>
+
+        <div class="stat-card">
+            <span>👤</span>
+            <h2>Profile</h2>
+            <p>Manage details</p>
+        </div>
+
+    </div>
+
+
+    <div class="quick-grid">
+
+        <a class="quick-card"
+           href="{{ url_for('add_product') }}">
+
+            <span>➕</span>
+
+            <h3>
+                Add Product
+            </h3>
+
+            <p>
+                Add product name, category, price and quantity.
+            </p>
+
+        </a>
+
+
+        <a class="quick-card"
+           href="{{ url_for('products') }}">
+
+            <span>📦</span>
+
+            <h3>
+                My Products
+            </h3>
+
+            <p>
+                View products available on the platform.
+            </p>
+
+        </a>
+
+
+        <a class="quick-card"
+           href="{{ url_for('orders') }}">
+
+            <span>📋</span>
+
+            <h3>
+                Vendor Orders
+            </h3>
+
+            <p>
+                View and manage vendor orders.
+            </p>
+
+        </a>
+
+
+        <a class="quick-card"
+           href="{{ url_for('profile') }}">
+
+            <span>👤</span>
+
+            <h3>
+                Supplier Profile
+            </h3>
+
+            <p>
+                Manage supplier and business information.
+            </p>
+
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}
